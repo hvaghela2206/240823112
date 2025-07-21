@@ -1,0 +1,149 @@
+function sumOfNaturalNumbers(n) {
+    return (n * (n + 1)) / 2;
+}
+
+console.log(sumOfNaturalNumbers(5));  // Output: 15
+
+
+5.
+function factorial(n) {
+    if (n === 0 || n === 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+
+console.log(factorial(4));  // Output: 24
+6.
+function printMultiplicationTable(num) {
+    for (let i = 1; i <= 10; i++) {
+        console.log(`${num} x ${i} = ${num * i}`);
+    }
+}
+
+printMultiplicationTable(3);
+7.
+function reverseNumber(num) {
+    return parseInt(num.toString().split('').reverse().join(''));
+}
+
+console.log(reverseNumber(1234));  // Output: 4321
+8.
+function isPalindrome(num) {
+    return num.toString() === num.toString().split('').reverse().join('');
+}
+
+console.log(isPalindrome(121) ? "Palindrome" : "Not Palindrome");  // Output: Palindrome
+9.
+function isPrime(n) {
+    if (n <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+    }
+    return true;
+}
+
+console.log(isPrime(11) ? "Prime" : "Not Prime");  // Output: Prime
+10.
+function countDigits(num) {
+    return num.toString().length;
+}
+
+console.log(countDigits(5023));  // Output: 4
+11.
+function sumOfDigits(num) {
+    return num.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+}
+
+console.log(sumOfDigits(123));  // Output: 6
+12.
+function isArmstrong(num) {
+    const digits = num.toString().split('');
+    const power = digits.length;
+    const sum = digits.reduce((acc, digit) => acc + Math.pow(parseInt(digit), power), 0);
+    return sum === num;
+}
+
+console.log(isArmstrong(153) ? "Armstrong" : "Not Armstrong");  // Output: Armstrong
+13.
+function fibonacci(n) {
+    const fibSeries = [0, 1];
+    for (let i = 2; i < n; i++) {
+        fibSeries.push(fibSeries[i - 1] + fibSeries[i - 2]);
+    }
+    return fibSeries.slice(0, n);
+}
+
+console.log(fibonacci(5));  // Output: [0, 1, 1, 2, 3]
+14.
+function checkVowelOrConsonant(char) {
+    const vowels = 'aeiou';
+    return vowels.includes(char.toLowerCase()) ? "Vowel" : "Consonant";
+}
+
+console.log(checkVowelOrConsonant('a'));  // Output: Vowel
+15.
+function simpleCalculator(a, b, operator) {
+    switch (operator) {
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        case '*':
+            return a * b;
+        case '/':
+            return b !== 0 ? a / b : "Error! Division by zero";
+        default:
+            return "Invalid operator";
+    }
+}
+
+console.log(simpleCalculator(4, 2, '+'));  // Output: 6
+16.
+function gcd(a, b) {
+    while (b !== 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+console.log(gcd(20, 28));  // Output: 4
+17.function isPerfect(num) {
+    let sum = 0;
+    for (let i = 1; i < num; i++) {
+        if (num % i === 0) {
+            sum += i;
+        }
+    }
+    return sum === num;
+}
+
+console.log(isPerfect(28) ? "Perfect" : "Not Perfect");  // Output: Perfect
+18.
+function printDivisors(num) {
+    const divisors = [];
+    for (let i = 1; i <= num; i++) {
+        if (num % i === 0) {
+            divisors.push(i);
+        }
+    }
+    return divisors;
+}
+
+console.log(printDivisors(10));  // Output: [1, 2, 5, 10]
+19.
+function numberSign(num) {
+    if (num > 0) return "Positive";
+    if (num < 0) return "Negative";
+    return "Zero";
+}
+
+console.log(numberSign(-5));  // Output: Negative
+20.
+function power(a, b) {
+    return Math.pow(a, b);
+}
+
+console.log(power(2, 3));  // Output: 8
