@@ -1,23 +1,20 @@
-const mongoose = require("mongoose")
+const express = require("express");
+const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://heenavaghela978_db_user:H7753034@heena.yz1n1wq.mongodb.net/students",{
-    // userNewUrlParser:true,
-    // useUnifiedTopology:true,
-})
+const studentRoute = require ("./route/studentRoute");
+const app = express();
+const PORT = 80;
+app.use(express.json());
 
-const studentSchema = new mongoose.Schema({
-    name:String,
-    department:String,
+mongoose.connect(
+    "mongodb+srv://heenavaghela978_db_user:H7753034@heena.yz1n1wq.mongodb.net/song",
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }
+);
+app.use("/song",studentRoute);
 
-})
-
-const Student = mongoose.model("student",studentSchema)
-
-console.log("mongodb connected successfuly")
-
-const student = new Student({
-    name:"jeel",
-    department:"computer"
-})
-
-student.save().then(()=>{console.log("student saved succesfully")}).catch((error)=>{console.log("error",error)})
+app.listen(PORT,()=>{
+    console.log("server is runinig: 127.0.0.1"+PORT);
+});
